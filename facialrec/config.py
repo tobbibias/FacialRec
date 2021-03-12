@@ -1,6 +1,6 @@
 import os
 
-IMG_SHAPE = (28, 28, 1)
+IMG_SHAPE = (28, 28, 3)
 BATCH_SIZE = 64
 EPOCHS = 10
 BASE_OUTPUT = 'output'
