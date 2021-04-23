@@ -1,6 +1,6 @@
 import tensorflow.keras.backend as K
 import matplotlib.pyplot as plt
-import numpy as np
+
 
 def euclidean_distance(vectors):
 	# unpack the vectors into separate lists

@@ -73,7 +73,7 @@ def loadData(path):
                     pass
                 else:
                     picture = cv2.imread(f'lfw/{person}/{picture}',1)
-                    picture = cv2.resize(picture,(28,28))
+                    picture = cv2.resize(picture,(125,125))
                     img.append(picture)
                     lables.append(person)
     trainX, testX, trainY, testY = train_test_split(img,lables,test_size=0.4)
@@ -86,7 +86,6 @@ def main():
     (trainPair, trainLabel) = make_pairs(trainX,trainY)
     print('[Info] Making the testing pairs...')
     (testPair, testLabel) = make_pairs(testX,testY)
-    print('[Info] Dataset fabrication complete.')
-
+    print(f'[Info] Dataset fabrication complete.')
 if __name__ == '__main__':
    main()
