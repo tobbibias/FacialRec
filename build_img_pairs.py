@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 
 
 def make_pairs(images, labels):
-    #making two lists , one for the images and one for the lables, we need these to make both pos and neg pairs.
+    # making two lists , one for the images and one for the labels, we need these to make both pos and neg pairs.
     pairImages = []
     pairLabels = []
     # finding the total amount of "classes" people in the dataset.
@@ -34,7 +34,6 @@ def make_pairs(images, labels):
         for i in range(0,len(labelIdx)):
             if labelIdx[i] == label:
                 idxB = np.random.choice(idx[i])
-
         posImage = images[idxB]
         # prepare a positive pair and update the images and labels
         # lists, respectively
@@ -55,16 +54,17 @@ def make_pairs(images, labels):
         pairLabels.append([0])
 
     # return a 2-tuple of our image pairs and labels
-    return (np.array(pairImages), np.array(pairLabels))
+    return np.array(pairImages), np.array(pairLabels)
+
 
 def loadData(path):
     # this function iterates over lfw and returns two lists
-    # #one of images in the dataset and one containing the lables/names of the people depictured.
+    # #one of images in the dataset and one containing the labels/names of the people depicted.
     img = []
     lables = []
-    #iterates over all the people in the dataset
+    # iterates over all the people in the dataset
     for person in os.listdir(path):
-        #for each person we add the picture and corresponding label to the output lists
+        # for each person we add the picture and corresponding label to the output lists
         if person.startswith('.'):
             pass
         else:
@@ -76,8 +76,9 @@ def loadData(path):
                     picture = cv2.resize(picture,(125,125))
                     img.append(picture)
                     lables.append(person)
-    trainX, testX, trainY, testY = train_test_split(img,lables,test_size=0.4)
+    trainX, testX, trainY, testY = train_test_split(img, lables, test_size=0.4)
     return trainX, testX, trainY, testY
+
 
 def main():
     print('[Info] Loading data...')
@@ -87,5 +88,7 @@ def main():
     print('[Info] Making the testing pairs...')
     (testPair, testLabel) = make_pairs(testX,testY)
     print(f'[Info] Dataset fabrication complete.')
+
+
 if __name__ == '__main__':
-   main()
+    main()
