@@ -2,7 +2,7 @@ import os
 import sys
 import cv2
 
-# this script only moves the folders and their content to a new dir called "small_Lfw"
+# this very script only moves the folders and their content to a new dir called "small_Lfw"
 
 def containsThree(indir, person):
     i = 0
