@@ -1,7 +1,7 @@
 from facialrec.siamese_net import build_model
 from facialrec import utils
 from facialrec import config
-import build_img_pairs
+import make_image_pairs
 import tensorflow as tf
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Dense
@@ -10,12 +10,12 @@ from tensorflow.keras.layers import Lambda
 
 
 print('[Data] Loading the dataset.')
-trainX, testX, trainY, testY = build_img_pairs.loadData('small_lfw')
+trainX, testX, trainY, testY = make_image_pairs.loadData('small_lfw')
 print('[Data] Making the training samples.')
-trainPair,trainLabel = build_img_pairs.make_pairs(trainX,trainY)
+trainPair,trainLabel = make_image_pairs.make_pairs(trainX,trainY)
 print('[Data] Done!')
 print('[Data] Making the testing samples.')
-testPair, testLabel = build_img_pairs.make_pairs(testX,testY)
+testPair, testLabel = make_image_pairs.make_pairs(testX,testY)
 
 print('[Data] Done!')
 
