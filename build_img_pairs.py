@@ -72,8 +72,8 @@ def loadData(path):
                 if picture.startswith('.'):
                     pass
                 else:
-                    picture = cv2.imread(f'lfw/{person}/{picture}',1)
-                    picture = cv2.resize(picture,(125,125))
+                    picture = cv2.imread(f'small_lfw/{person}/{picture}',1)
+                    picture = cv2.resize(picture, (125, 125))
                     img.append(picture)
                     lables.append(person)
     trainX, testX, trainY, testY = train_test_split(img, lables, test_size=0.4)
@@ -82,7 +82,7 @@ def loadData(path):
 
 def main():
     print('[Info] Loading data...')
-    trainX, testX, trainY, testY = loadData('lfw')
+    trainX, testX, trainY, testY = loadData('small_lfw')
     print('[Info] Making the training pairs...')
     (trainPair, trainLabel) = make_pairs(trainX,trainY)
     print('[Info] Making the testing pairs...')

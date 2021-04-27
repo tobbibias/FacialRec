@@ -10,12 +10,13 @@ from tensorflow.keras.layers import Lambda
 
 
 print('[Data] Loading the dataset.')
-trainX, testX, trainY, testY = build_img_pairs.loadData('lfw')
+trainX, testX, trainY, testY = build_img_pairs.loadData('small_lfw')
 print('[Data] Making the training samples.')
 trainPair,trainLabel = build_img_pairs.make_pairs(trainX,trainY)
 print('[Data] Done!')
 print('[Data] Making the testing samples.')
 testPair, testLabel = build_img_pairs.make_pairs(testX,testY)
+
 print('[Data] Done!')
 
 
